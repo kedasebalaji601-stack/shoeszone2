@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+  *{margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+  body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+  }
+  .box{
+    background:white;
+    padding:30px;
+    width:320px;
+    border-radius:12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+  .box h2{ text-align:center; margin-bottom:20px; }
+  .box input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+  }
+  .box input:focus{ border-color:#667eea; }
+  .box button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:#667eea;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+  }
+  .box button:hover{ background:#5a6fd6; }
+  #msg{ text-align:center; margin-top:10px; font-size:14px; color:red;}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <p id="msg"></p>
+</div>
+
+<script>
+  function login(){
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+    let msg = document.getElementById("msg");
+
+    // yaha apna username password check kar sakta hai
+    if(user === "" || pass === ""){
+      msg.innerText = "Sab field bharo!";
+      msg.style.color = "red";
+    }
+    else if(user === "admin" && pass === "1234"){
+      msg.innerText = "Login Successful!";
+      msg.style.color = "green";
+      // yaha dusre page pe bhej sakta hai
+      // window.location.href = "home.html";
+    }
+    else{
+      msg.innerText = "Galat username ya password!";
+      msg.style.color = "red";
+    }
+  }
+</script>
+
+</body>
+</html>

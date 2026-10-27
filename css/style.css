@@ -1,0 +1,638 @@
+```css
+/* =========================================================
+   NOVAMART E-COMMERCE WEBSITE
+   HTML + CSS ONLY
+========================================================= */
+
+
+/* =========================================================
+   1. GOOGLE FONT
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+
+/* =========================================================
+   2. BASIC RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: #151515;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+.container {
+    width: min(1160px, 92%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   3. NAVBAR
+========================================================= */
+
+.header {
+    height: 76px;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.nav {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-family: "Manrope", sans-serif;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.logo span {
+    font-weight: 500;
+}
+
+
+/* NAV LINKS */
+
+.nav nav {
+    display: flex;
+    gap: 28px;
+}
+
+.nav nav a {
+    position: relative;
+
+    font-size: 14px;
+    color: #777777;
+
+    transition:
+        color 0.25s ease;
+}
+
+.nav nav a:hover {
+    color: #111111;
+}
+
+.nav nav a.active {
+    color: #111111;
+}
+
+
+/* UNDERLINE ANIMATION */
+
+.nav nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -9px;
+
+    width: 100%;
+    height: 2px;
+
+    background: #111111;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.3s ease;
+}
+
+.nav nav a:hover::after,
+.nav nav a.active::after {
+    transform: scaleX(1);
+}
+
+
+/* NAV ACTIONS */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+
+/* CART */
+
+.cart {
+    font-size: 18px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.cart:hover {
+    transform: translateY(-2px);
+}
+
+.cart b {
+    font-size: 10px;
+
+    background: #111111;
+    color: white;
+
+    border-radius: 50%;
+
+    padding: 2px 5px;
+
+    vertical-align: top;
+}
+
+
+/* SHOP BUTTON */
+
+.nav-button {
+    background: #111111;
+    color: #ffffff;
+
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   4. BUTTONS
+========================================================= */
+
+.btn {
+    display: inline-block;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn.primary {
+    background: #171717;
+    color: #ffffff;
+}
+
+.btn.primary:hover {
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+.btn.secondary {
+    background: #ffffff;
+    border: 1px solid #bbbbbb;
+    color: #222222;
+}
+
+.btn.secondary:hover {
+    border-color: #222222;
+}
+
+
+/* =========================================================
+   5. HERO SECTION
+========================================================= */
+
+.hero {
+    min-height: 650px;
+
+    background: #f5f2ed;
+
+    overflow: hidden;
+}
+
+.hero-grid {
+    min-height: 650px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+}
+
+
+/* HERO TEXT */
+
+.eyebrow {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+
+    color: #777777;
+
+    margin-bottom: 13px;
+}
+
+.hero h1 {
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(42px, 5.5vw, 76px);
+
+    line-height: 1.02;
+
+    letter-spacing: -3px;
+
+    font-weight: 800;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: #9a7057;
+}
+
+.hero-description {
+    max-width: 500px;
+
+    margin: 25px 0;
+
+    color: #666666;
+
+    font-size: 17px;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 12px;
+}
+
+.trust {
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 30px;
+
+    color: #666666;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   6. HERO PRODUCT ART
+========================================================= */
+
+.hero-art {
+    height: 500px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* BIG CIRCLE */
+
+.hero-circle {
+    width: 370px;
+    height: 370px;
+
+    background: #d8c3ae;
+
+    border-radius: 50%;
+
+    animation:
+        pulse 5s ease-in-out infinite alternate;
+}
+
+
+/* PRODUCT FLOATING CARD */
+
+.hero-product-card {
+    position: absolute;
+
+    right: 40px;
+    bottom: 75px;
+
+    width: 190px;
+
+    background: #ffffff;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.hero-product-image {
+    height: 110px;
+
+    background: #eee8df;
+
+    border-radius: 12px;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 58px;
+
+    margin-bottom: 12px;
+}
+
+.hero-product-card p {
+    font-size: 14px;
+}
+
+.hero-product-card h3 {
+    font-size: 20px;
+}
+
+
+/* REVIEW CARD */
+
+.review-card {
+    position: absolute;
+
+    top: 70px;
+    left: 20px;
+
+    padding: 15px 18px;
+
+    border-radius: 12px;
+
+    background: #171717;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+.review-card strong,
+.review-card span {
+    display: block;
+}
+
+.review-card span {
+    font-size: 11px;
+
+    color: #cccccc;
+}
+
+
+/* =========================================================
+   7. FLOAT ANIMATION
+========================================================= */
+
+.floating {
+    animation:
+        floating 4s ease-in-out infinite;
+}
+
+.floating-delay {
+    animation:
+        floating 4s ease-in-out 0.8s infinite;
+}
+
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-13px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* HERO CIRCLE */
+
+@keyframes pulse {
+
+    from {
+        transform: scale(0.96);
+    }
+
+    to {
+        transform: scale(1.04);
+    }
+
+}
+
+
+/* =========================================================
+   8. GENERAL SECTIONS
+========================================================= */
+
+.section {
+    padding: 85px 0;
+}
+
+.light-section {
+    background: #f8f8f6;
+}
+
+
+/* SECTION HEADING */
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-family: "Manrope", sans-serif;
+
+    font-size: 38px;
+
+    letter-spacing: -1.5px;
+}
+
+.text-link {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    position: relative;
+}
+
+
+/* LINK UNDERLINE */
+
+.text-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 100%;
+    height: 1px;
+
+    background: #111111;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.25s ease;
+}
+
+.text-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   9. CATEGORY CARDS
+========================================================= */
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.category-card {
+    min-height: 210px;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.08);
+}
+
+.category-icon {
+    font-size: 48px;
+
+    margin-bottom: 25px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.category-card:hover .category-icon {
+    transform:
+        scale(1.12)
+        rotate(-5deg);
+}
+
+.category-card h3 {
+    font-family: "Manrope", sans-serif;
+
+    font-size: 20px;
+}
+
+.category-card p {
+    color: #666666;
+
+    font-size: 13px;
+}
+
+
+/* CATEGORY COLORS */
+
+.fashion {
+    background: #eee5dd;
+}
+
+.tech {
+    background: #e3e9e8;
+}
